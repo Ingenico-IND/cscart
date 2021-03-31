@@ -1,6 +1,6 @@
 <div clas="content-wrap" style="width:100%">
     <div class="dashboard-activity" style="min-height:550px">
-        <div style="width:50%; float: left;">
+        <div style="width:50%;">
             <h4>Ingenico : Reconciliation</h4>
             <div class="dashboard-activity-list" style="max-height: fit-content;border: 0px;overflow-y: auto;">
                 <table class="table table-bordered table-hover">
@@ -26,16 +26,12 @@
                 </div>
             </div>
         </div>
-        <div style="width:50%;">
-            <div class="alert alert-success" id="message"></div>
-        </div>
     </div>
 </div>
 {literal}
 <script>
 
 $(document).ready(function(){
-    $('#message').hide();
     $('#submit3').click(function(){
     var reconcileFromDate = $('#reconcileFromDate').val();
     var reconcileToDate = $('#reconcileToDate').val();
@@ -47,11 +43,6 @@ $(document).ready(function(){
             callback: function(data) {
                 $('#reconcile_result').html('');
                 $('#reconcile_result').append(data.ids);
-                $('#message').show();
-                $('#message').html('Reconciliation successful !!!');
-                $("#message").fadeTo(2000, 500).slideUp(500, function() {
-                    $("#message").slideUp(500);
-                });
             }
         });
     });

@@ -1,8 +1,9 @@
 
 <div clas="content-wrap" style="width:100%">    
-    
 	<div class="dashboard-activity" style="min-height:550px">
-        <div style="width:50%;float:left;">        
+        <div class="alert alert-success" id="successMessage"></div>
+        <div class="alert alert-danger" id="errorMessage"></div>
+        <div style="width:50%;">        
     	    <h4>Ingenico : Refund </h4>
     	    <div class="dashboard-activity-list" style="max-height: fit-content;border: 0px;overflow-y: auto;">
     	        <table class="table table-bordered table-hover">
@@ -38,10 +39,6 @@
                 </div>
             </div>
 	    </div>
-        <div style="width:50%">
-            <div class="alert alert-success" id="successMessage"></div>
-            <div class="alert alert-danger" id="errorMessage"></div>
-        </div>
 	</div>
 </div>
 
