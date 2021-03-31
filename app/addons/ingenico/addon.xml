@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<addon scheme="2.0">
+	<id>ingenico</id>
+	<name>Ingenico Payment</name>
+	<description>Ingenico Payment Gateway</description>
+	<version>1.0</version>
+	<priority>100500</priority>
+	<queries>
+        <item for="install">DROP TABLE IF EXISTS `?:order_ingenico`;</item>        
+        <item for="install">DELETE FROM `?:payment_processors` WHERE `processor_script` = 'ingenico.php';</item>
+		<item for="install">
+            CREATE TABLE `?:order_ingenico` (
+				`id` int(11) unsigned NOT NULL AUTO_INCREMENT ,
+				`order_id` int(11) NOT NULL ,
+				`user_id` int(11) NOT NULL ,
+				`total` int(11) NOT NULL ,
+				`merchant_identifier` int(11) NOT NULL ,
+				`tpsl_identifier` int(11) NOT NULL ,
+				`mandate_no` text NULL ,
+				`response` text NOT NULL ,
+				`status` text NOT NULL ,
+				`dateAdded` date NOT NULL ,
+				PRIMARY KEY (`id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="install">
+			REPLACE INTO `?:payment_processors` (`processor`,`processor_script`,`processor_template`,`admin_template`,`callback`,`type`,`addon` ) VALUES ('Ingenico', 'ingenico.php', 'views/orders/components/payments/cc_outside.tpl', 'ingenico.tpl', 'N', 'P', 'ingenico');
+		</item>
+
+        <item for="uninstall">DROP TABLE IF EXISTS `?:order_ingenico`;</item>
+        <item for="uninstall">DELETE FROM `?:payment_processors` WHERE `processor_script` = 'ingenico.php';</item>
+	</queries>
+</addon>
