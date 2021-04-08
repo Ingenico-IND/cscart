@@ -100,7 +100,7 @@ if (defined('PAYMENT_NOTIFICATION'))
 	            $pp_response['reason_text'] = 'Payment Failed. You can check the payment status using Payment ID on Admin Dashboard.';
         	}
 
-            $pp_response['transaction_id'] = $merchantOrderId;
+            $pp_response['transaction_id'] = $ingenicoResponse[3];
             $pp_response['client_id'] = $ingenicoResponse[5];
 
             fn_finish_payment($merchantOrderId, $pp_response);
@@ -202,7 +202,7 @@ else
 		                'responseHandler': handleResponse,
 		                'checkoutElement': '<?php if($_SESSION['cart']['payment_method_data']['processor_params']['embedPaymentGatewayOnPage'] == 1){echo "#embedPaymentGatewayOnPage";}else{echo "";} ?>',
 		                'paymentMode': '<?php echo $_SESSION['cart']['payment_method_data']['processor_params']['paymentMode']; ?>',
-		                'paymentModeOrder': ['<?php echo$paymentModeOrder; ?>'],
+		                <?php if (!empty($paymentModeOrder)){?>'paymentModeOrder': ['<?php echo$paymentModeOrder; ?>'], <?php } ?>
 		                'merchantLogoUrl': '<?php echo $_SESSION['cart']['payment_method_data']['processor_params']['logoURL']; ?>',  //provided merchant logo will be displayed
 		                'merchantMsg': '<?php echo $_SESSION['cart']['payment_method_data']['processor_params']['merchantMessage']; ?>',
     					'disclaimerMsg': '<?php echo $_SESSION['cart']['payment_method_data']['processor_params']['disclaimerMessage']; ?>',
