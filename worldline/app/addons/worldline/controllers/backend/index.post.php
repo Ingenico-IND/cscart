@@ -17,13 +17,10 @@ if (!defined('BOOTSTRAP')) { die('Access denied'); }
 use Tygh\Registry;
 
 
-	$offlineURL = fn_url("ingenico.offline", AREA, 'current');
-    $refundURL = fn_url("ingenico.refund", AREA, 'current');
-	$reconcileURL = fn_url("ingenico.reconcile", AREA, 'current');
+	$offlineURL = fn_url("worldline.offline", AREA, 'current');
+    $refundURL = fn_url("worldline.refund", AREA, 'current');
+	$reconcileURL = fn_url("worldline.reconcile", AREA, 'current');
 
     Registry::get('view')->assign('refundURL', $refundURL);
     Registry::get('view')->assign('offlineURL', $offlineURL);
     Registry::get('view')->assign('reconcileURL', $reconcileURL);
-
-
-?>

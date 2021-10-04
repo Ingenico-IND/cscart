@@ -1,7 +1,7 @@
 <div clas="content-wrap" style="width:100%">
     <div class="dashboard-activity" style="min-height:550px">
         <div style="width:50%;">
-            <h4>Ingenico : Reconciliation</h4>
+            <h4>Worldline : Reconciliation</h4>
             <div class="dashboard-activity-list" style="max-height: fit-content;border: 0px;overflow-y: auto;">
                 <table class="table table-bordered table-hover">
                     <tr class="info">
@@ -37,7 +37,7 @@ $(document).ready(function(){
     var reconcileToDate = $('#reconcileToDate').val();
     console.log(reconcileFromDate);
     console.log(reconcileToDate);
-        $.ceAjax('request', fn_url('ingenico.reconcile'), {
+        $.ceAjax('request', fn_url('worldline.reconcile'), {
             cache: false,
             data: {reconcileFromDate,reconcileToDate},
             callback: function(data) {
