@@ -2,7 +2,7 @@
 
 <addon scheme="2.0">
 	<id>worldline</id>
-	<name>Worldline Payment</name>
+	<name>Cards / UPI / Netbanking / Wallets</name>
 	<description>Worldline Payment Gateway</description>
 	<version>1.0</version>
 	<priority>100500</priority>
